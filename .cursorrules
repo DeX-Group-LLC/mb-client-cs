@@ -1,0 +1,35 @@
+# General Rules for Modifying C# Files
+
+1.  **Document Thoroughly:**
+    *   Use XML documentation comments (`///`) for all public types, methods, and properties.
+    *   Add inline comments (`//`) to explain complex or non-obvious logic.
+
+2.  **Update Unit Tests:**
+    *   Run `dotnet test` before making changes to ensure all existing tests pass. This will also provide code coverage information if configured.
+    *   Create new unit tests for any new functionality.
+    *   Modify existing unit tests to cover changes made to existing code.
+
+3.  **Update README:**
+    *   If changes affect repository-level functionality (e.g., how to build, run, or use the library), update the `README.md` file accordingly.
+
+4.  **Organize `using` Statements:**
+    *   Remove unused `using` statements.
+    *   Sort `using` statements with `System` namespaces first, followed by other namespaces in alphabetical order. Most IDEs can automate this.
+
+# Specific Rules for Adding/Modifying Unit Tests
+
+1.  **Comprehensive Coverage:**
+    *   Ensure new unit tests thoroughly cover the functionality of any new code added, including edge cases.
+
+2.  **Test Execution:**
+    *   Run `dotnet test` after adding or modifying unit tests to confirm that all tests pass successfully.
+
+3.  **Documentation for Tests:**
+    *   Add comments to test methods to explain the purpose of the test case and what it verifies.
+
+4.  **Inline Comments for Tests:**
+    *   Use inline comments within test cases to clarify complex setup or assertions.
+
+# Updating the .cursorrules File
+
+*   If the project's architecture or conventions change significantly, update this file to reflect the new standards.

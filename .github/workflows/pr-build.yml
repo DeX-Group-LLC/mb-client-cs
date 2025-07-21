@@ -1,0 +1,30 @@
+name: PR Build and Validation
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ./csharp
+
+      - name: Build
+        run: dotnet build ./csharp --no-restore
+        
+      - name: Test
+        run: dotnet test ./csharp --no-build --verbosity normal
